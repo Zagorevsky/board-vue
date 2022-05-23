@@ -1,14 +1,31 @@
 <template>
-  <HelloWorld msg="Привет, Олег!"/>
+  <div class="app">
+    <card-form @create="createCard" />
+    <card-list :cards="cards" />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import CardForm from './components/CardForm'
+import CardList from './components/CardList'
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    CardForm, CardList
+  },
+  data() {
+    return {
+      cards: [
+        { id: 1, title: 'Card 1', body: 'Body card 1' },
+        { id: 2, title: 'Card 2', body: 'Body card 2' },
+        { id: 3, title: 'Card 3', body: 'Body card 3' },
+      ],
+    }
+  },
+  methods: {
+    createCard(card) {
+      this.cards.push(card)
+    }
   }
 }
 </script>
@@ -18,8 +35,5 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

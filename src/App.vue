@@ -33,7 +33,12 @@ export default {
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-weight: normal;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 </style>

@@ -3,7 +3,7 @@
     <h3>Создать объявление</h3>
     <input v-model="card.title" type="text">
     <input v-model="card.body" type="text">
-    <button @click="createCard">Создать</button>
+    <card-button button @click="createCard">Создать</card-button>
   </form>
 </template>
 

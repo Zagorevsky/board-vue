@@ -1,6 +1,12 @@
 <template>
   <div>
-    <card-item class="card" :card="card" v-for="card in cards" :key="card.id" />
+    <card-item
+      class="card"
+      :card="card"
+      v-for="card in cards"
+      :key="card.id"
+      @remove="$emit('remove', card)"
+      />
   </div>
 </template>
 

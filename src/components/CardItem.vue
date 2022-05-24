@@ -5,7 +5,7 @@
       <div>Описание: {{ card.body }}</div>
     </div>
     <div class="button">
-      <card-button>Удалить</card-button>
+      <card-button @click="$emit('remove', card)">Удалить</card-button>
     </div>
   </section>
 </template>
@@ -16,7 +16,8 @@ export default {
       type: Object,
       required: true,
     }
-  }
+  },
+
 }
 </script>
 
@@ -28,6 +29,5 @@ export default {
   padding: 20px;
   margin-top: 20px;
   border: 1px solid;
-
 }
 </style>

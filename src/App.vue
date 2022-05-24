@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <card-form @create="createCard" />
-    <card-list :cards="cards" />
+    <card-list :cards="cards" @remove="removeCard"/>
   </div>
 </template>
 
@@ -25,6 +25,9 @@ export default {
   methods: {
     createCard(card) {
       this.cards.push(card)
+    },
+    removeCard(card) {
+      this.cards = this.cards.filter(p => p.id !== card.id)
     }
   }
 }

@@ -1,6 +1,9 @@
 <template>
   <div class="app">
-    <card-form @create="createCard" />
+    <card-button @click="openPopup">Создать</card-button>
+    <card-popup v-model:show="popup">
+      <card-form @create="createCard" />
+    </card-popup>
     <card-list :cards="cards" @remove="removeCard"/>
   </div>
 </template>
@@ -20,14 +23,18 @@ export default {
         { id: 2, title: 'Card 2', body: 'Body card 2' },
         { id: 3, title: 'Card 3', body: 'Body card 3' },
       ],
+      popup: false,
     }
   },
   methods: {
     createCard(card) {
-      this.cards.push(card)
+      this.cards.push(card);
     },
     removeCard(card) {
-      this.cards = this.cards.filter(p => p.id !== card.id)
+      this.cards = this.cards.filter(p => p.id !== card.id);
+    },
+    openPopup() {
+      this.popup = true;
     }
   }
 }

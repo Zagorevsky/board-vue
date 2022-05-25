@@ -1,9 +1,9 @@
 <template>
-  <form @submit.prevent>
+  <form @submit.prevent class="form">
     <h3>Создать объявление</h3>
     <card-input v-model="card.title" type="text"/>
     <card-input v-model="card.body" type="text"/>
-    <card-button @click="createCard">Создать</card-button>
+    <card-button @click="createCard">Сохранить</card-button>
   </form>
 </template>
 
@@ -31,4 +31,8 @@ export default {
 </script>
 
 <style scoped>
+.form {
+  display: flex;
+  flex-direction: column;
+}
 </style>

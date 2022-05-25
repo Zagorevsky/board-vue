@@ -34,6 +34,11 @@ export default {
 </script>
 
 <style>
+.body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   background-color: #000000;
@@ -42,6 +47,6 @@ export default {
   width: 100vw;
   height: 100vh;
   margin: 0;
-  padding: 0;
+  padding: 50px 20px 50px 20px;
 }
 </style>

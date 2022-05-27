@@ -1,6 +1,7 @@
 <template>
   <section class="card">
     <div>
+      <div><img :src="card.link" class="img"/></div>
       <div>Название: {{ card.title }}</div>
       <div>Описание: {{ card.body }}</div>
     </div>
@@ -29,5 +30,10 @@ export default {
   padding: 20px;
   margin-top: 20px;
   border: 1px solid;
+}
+.img {
+  max-width: 100%;
+  width: 246px;
+  height: 289px;
 }
 </style>

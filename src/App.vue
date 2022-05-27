@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import {initialCards} from './components/utils/utils'
 import CardForm from './components/CardForm'
 import CardList from './components/CardList'
 
@@ -21,11 +22,7 @@ export default {
   },
   data() {
     return {
-      cards: [
-        { id: 1, title: 'Card 1', body: '3 Body card 3' },
-        { id: 2, title: 'ard 2', body: 'C Body card 2' },
-        { id: 3, title: 'Card 3', body: 'A Body card 1' },
-      ],
+      cards: initialCards,
       popup: false,
       selectedSort: '',
       sortOptions: [
@@ -57,7 +54,8 @@ export default {
 .body {
   margin: 0;
   padding: 0;
-  display: flex;
+  display: grid;
+  max-width: 100vw;
 }
 
 #app {
@@ -65,8 +63,6 @@ export default {
   background-color: #000000;
   color: #FFFFFF;
   font-weight: normal;
-  width: 100vw;
-  height: 100vh;
   margin: 0;
   padding: 50px 20px 50px 20px;
 }

@@ -1,13 +1,9 @@
 <template>
   <section class="card">
-    <div>
-      <div><img :src="card.link" class="img"/></div>
-      <div>Название: {{ card.title }}</div>
-      <div>Описание: {{ card.body }}</div>
-    </div>
-    <div class="button">
-      <card-button @click="$emit('remove', card)">Удалить</card-button>
-    </div>
+    <card-button @click="$emit('remove', card)">Удалить</card-button>
+    <div><img :src="card.link" class="img" /></div>
+    <div>{{ card.title }}</div>
+    <div>{{ card.body }}</div>
   </section>
 </template>
 <script>
@@ -24,13 +20,16 @@ export default {
 
 <style scoped>
 .card {
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-radius: 10px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-  margin-top: 20px;
-  border: 1px solid;
+  flex-direction: column;
+  position: relative;
 }
+
 .img {
   max-width: 100%;
   width: 246px;

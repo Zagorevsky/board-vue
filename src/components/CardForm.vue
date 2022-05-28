@@ -3,6 +3,7 @@
     <h3>Создать объявление</h3>
     <card-input v-model="card.title" type="text"/>
     <card-input v-model="card.body" type="text"/>
+    <card-input v-model="card.link" type="url"/>
     <card-button @click="createCard">Сохранить</card-button>
   </form>
 </template>
@@ -13,7 +14,8 @@ export default {
     return {
       card: {
         title: '',
-        bodt: '',
+        body: '',
+        link:'',
       }
     }
   },
@@ -24,6 +26,7 @@ export default {
       this.card = {
         title: '',
         body: '',
+        link:'',
       }
     },
   }

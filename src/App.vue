@@ -1,5 +1,6 @@
 <template>
   <div class="app">
+    <card-input v-model="search" type="text" />
     <div class="top">
       <card-button @click="openPopup">Создать</card-button>
       <card-select v-model="selectedSort" :options="sortOptions" />
@@ -7,12 +8,12 @@
     <card-popup v-model:show="popup">
       <card-form @create="createCard" />
     </card-popup>
-    <card-list :cards="sortedCards" @remove="removeCard" />
+    <card-list :cards="searchSortedCards" @remove="removeCard" />
   </div>
 </template>
 
 <script>
-import {initialCards} from './components/utils/utils'
+import { initialCards } from './components/utils/utils'
 import CardForm from './components/CardForm'
 import CardList from './components/CardList'
 
@@ -25,6 +26,7 @@ export default {
       cards: initialCards,
       popup: false,
       selectedSort: '',
+      search: '',
       sortOptions: [
         { value: 'title', name: 'По нзванию' },
         { value: 'body', name: 'По строке' },
@@ -45,6 +47,10 @@ export default {
   computed: {
     sortedCards() {
       return [...this.cards].sort((card1, card2) => card1[this.selectedSort]?.localeCompare(card2[this.selectedSort]))
+    },
+    searchSortedCards() {
+      return this.sortedCards.filter(card => card.title.toLowerCase().includes(this.search.toLowerCase()
+      ))
     }
   }
 }
@@ -65,10 +71,14 @@ export default {
   font-weight: normal;
   margin: 0;
   padding: 50px 20px 50px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .top {
   display: flex;
   justify-content: space-between;
+  max-width: 880px;
 }
 </style>

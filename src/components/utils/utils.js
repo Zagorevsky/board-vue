@@ -2,7 +2,7 @@ export const initialCards = [
   {
     id: 1,
     title: 'Архыз',
-    body: 'Архыз',
+    body: 'Архыз qq',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
   },
   {

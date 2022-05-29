@@ -1,6 +1,7 @@
 <template>
   <div class="app">
-    <card-input v-model="search" type="text" />
+    <router-view></router-view>
+    <card-input class="input" placeholder="Поиск" v-model="search" type="text" />
     <div class="top">
       <card-button @click="openPopup">Создать</card-button>
       <card-select v-model="selectedSort" :options="sortOptions" />
@@ -46,11 +47,14 @@ export default {
   },
   computed: {
     sortedCards() {
-      return [...this.cards].sort((card1, card2) => card1[this.selectedSort]?.localeCompare(card2[this.selectedSort]))
+      return [...this.cards].sort((card1, card2) =>
+        card1[this.selectedSort]?.localeCompare(card2[this.selectedSort]))
     },
     searchSortedCards() {
-      return this.sortedCards.filter(card => card.title.toLowerCase().includes(this.search.toLowerCase()
-      ))
+      return this.sortedCards.filter(card =>
+        card.title.toLowerCase().includes(this.search.toLowerCase()) ||
+        card.body.toLowerCase().includes(this.search.toLowerCase())
+      )
     }
   }
 }
@@ -62,6 +66,7 @@ export default {
   padding: 0;
   display: grid;
   max-width: 100vw;
+  min-height: 100vh;
 }
 
 #app {
@@ -72,7 +77,6 @@ export default {
   margin: 0;
   padding: 50px 20px 50px 20px;
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 
@@ -80,5 +84,15 @@ export default {
   display: flex;
   justify-content: space-between;
   max-width: 880px;
+}
+
+.input {
+  border: 0;
+  margin: 20px 0 20px 0;
+  outline: none;
+  color: rgba(160, 160, 160, 1);
+  font-size: 13px;
+  line-height: 17px;
+  width: 100%;
 }
 </style>

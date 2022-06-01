@@ -1,17 +1,14 @@
 <template>
   <div>Объявлени детально</div>
-  <div>{{ $route.params }}</div>
+  <div>{{ $route.params.id }}</div>
 
 </template>
 
 <script>
-
 export default {
-
 
 }
 </script>
 
 <style>
-
 </style>

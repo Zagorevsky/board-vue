@@ -1,7 +1,10 @@
 <template>
   <section class="card">
     <card-button @click="$emit('remove', card)">Удалить</card-button>
-    <div><img :src="card.link" class="img" @click="$router.push('/card/${card.id}')"/></div>
+    <div><img :src="card.link" class="img"
+    @click="$router.push(`/card/${card.id}`)"
+
+    /></div>
     <div>{{ card.title }}</div>
     <div>{{ card.body }}</div>
   </section>

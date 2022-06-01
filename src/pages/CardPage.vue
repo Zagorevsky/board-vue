@@ -1,21 +1,14 @@
 <template>
   <div>Объявлени детально</div>
-   <card-item />
+  <div>{{ $route.params }}</div>
+
 </template>
 
 <script>
-import CardItem from '@/components/CardItem'
 
 export default {
-  components: {
-    CardItem
-  },
-  props: {
-    card: {
-      type: Object,
-      required: true,
-    }
-  },
+
+
 }
 </script>
 

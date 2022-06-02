@@ -1,12 +1,14 @@
 <template>
   <section class="card">
     <card-button @click="$emit('remove', card)">Удалить</card-button>
-    <div><img :src="card.link" class="img"
-    @click="$router.push(`/card/${card.id}`)"
-
-    /></div>
+    <div><img :src="card.link" class="img" @click="popup=true" /></div>
     <div>{{ card.title }}</div>
     <div>{{ card.body }}</div>
+    <card-popup v-model:show="popup">
+      <div><img :src="card.link" class="img" /></div>
+      <div>{{ card.title }}</div>
+      <div>{{ card.body }}</div>
+    </card-popup>
   </section>
 </template>
 <script>
@@ -17,7 +19,11 @@ export default {
       required: true,
     }
   },
-
+data() {
+    return {
+      popup: false,
+    }
+  },
 }
 </script>
 

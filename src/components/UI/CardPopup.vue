@@ -30,7 +30,7 @@ export default {
   align-items: center;
   justify-content: center;
   position: fixed;
-  background-color: rgba(0, 0, 0, .5);
+  background-color: rgba(0, 0, 0, .8);
   top: 0;
   right: 0;
   bottom: 0;

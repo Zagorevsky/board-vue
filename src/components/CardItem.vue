@@ -5,7 +5,7 @@
     <div>{{ card.title }}</div>
     <div>{{ card.body }}</div>
     <card-popup v-model:show="popup">
-      <div><img :src="card.link" class="img" /></div>
+      <div><img :src="card.link" class="img-big" /></div>
       <div>{{ card.title }}</div>
       <div>{{ card.body }}</div>
     </card-popup>
@@ -43,5 +43,10 @@ data() {
   max-width: 100%;
   width: 246px;
   height: 289px;
+}
+
+.img-big {
+  width: 75vw;
+  height: 75vh;
 }
 </style>

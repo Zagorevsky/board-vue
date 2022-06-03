@@ -1,6 +1,6 @@
 <template>
   <section class="card">
-    <card-button @click="$emit('remove', card)">Удалить</card-button>
+    <card-button-img @click="$emit('remove', card)">Удалить</card-button-img>
     <div><img :src="card.link" class="img" @click="popup=true" /></div>
     <div>{{ card.title }}</div>
     <div>{{ card.body }}</div>
@@ -41,8 +41,11 @@ data() {
 
 .img {
   max-width: 100%;
-  width: 246px;
-  height: 289px;
+  width: 100%;
+  height: 282px;
+  background-size: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .img-big {

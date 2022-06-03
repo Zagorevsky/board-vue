@@ -1,10 +1,15 @@
 <template>
   <section class="card">
-    <card-button-img @click="$emit('remove', card)">Удалить</card-button-img>
-    <div><img :src="card.link" class="img" @click="popup=true" /></div>
-    <div>{{ card.title }}</div>
-    <div>{{ card.body }}</div>
-    <card-popup v-model:show="popup">
+    <card-button-img @click="popupgDelitCard =true"></card-button-img>
+    <card-popup v-model:show="popupgDelitCard">
+      <card-button @click="$emit('remove', card)">Удалить</card-button>
+    </card-popup>
+    <div class="img"><img :src="card.link" class="img" @click="popupgImgBig = true" /></div>
+    <div class="card-block-txt">
+      <div class="card-txt">{{ card.title }}</div>
+      <div class="card-txt">{{ card.body }}</div>
+    </div>
+    <card-popup v-model:show="popupgImgBig">
       <div><img :src="card.link" class="img-big" /></div>
       <div>{{ card.title }}</div>
       <div>{{ card.body }}</div>
@@ -19,9 +24,10 @@ export default {
       required: true,
     }
   },
-data() {
+  data() {
     return {
-      popup: false,
+      popupgImgBig: false,
+      popupgDelitCard: false,
     }
   },
 }
@@ -37,6 +43,25 @@ data() {
   display: flex;
   flex-direction: column;
   position: relative;
+}
+
+.card-block-txt {
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 900;
+  padding: 0;
+  margin: 0;
+  color: #000000;
+  background-color: #FFFFFF;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.card-txt {
+  margin: 10px 0 10px 0;
+  padding: 0;
+  width: 100%;
 }
 
 .img {

@@ -14,7 +14,7 @@ const routes = [
   },
   {
     path: '/register',
-    name: 'register',
+    name: 'register-user',
     component: RegisterUser,
     meta: {
       guest: true

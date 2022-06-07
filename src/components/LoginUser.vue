@@ -12,11 +12,9 @@
           <input id="password" type="password" v-model="password" required>
         </div>
       </div>
-      <div>
-        <button type="submit" @click="handleSubmit">
-          Войти
-        </button>
-      </div>
+      <button type="submit" @click="handleSubmit">
+        Войти
+      </button>
     </form>
   </div>
 </template>
@@ -46,12 +44,7 @@ export default {
                 this.$router.push(this.$route.params.nextUrl)
               }
               else {
-                if (is_admin == 1) {
-                  this.$router.push('admin')
-                }
-                else {
-                  this.$router.push('dashboard')
-                }
+                this.$router.push('dashboard')
               }
             }
           })
